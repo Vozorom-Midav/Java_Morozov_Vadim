@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Notebook
  */
@@ -16,9 +18,9 @@
     можно также в Map.
     -Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
   */
-  
+
 public class Notebook {
-    //Название бренда ноутбука
+    //Название ноутбука
     private String brandName;
     //Год выхода ноутбука
     private int releaseYear;
@@ -27,7 +29,7 @@ public class Notebook {
     //Тип матрицы
     private String matrixType;
     //Диагональ экрана
-    private String diagonal;
+    private int diagonal;
     //Модель процессора
     private String processorName;
     //Объем RAM
@@ -37,7 +39,7 @@ public class Notebook {
     //Операционная система
     private String operatingSystem;
 
-    public Notebook(String brandName, int releaseYear, String color, String matrixType, String diagonal, String processorName, int memorySize, int storageSize, String operatingSystem){
+    public Notebook(String brandName, int releaseYear, String color, String matrixType, int diagonal, String processorName, int memorySize, int storageSize, String operatingSystem){
         this.brandName = brandName;
         this.releaseYear = releaseYear;
         this.color = color;
@@ -81,11 +83,11 @@ public class Notebook {
         this.matrixType = matrixType;
     }
 
-    public String getDiagonal() {
+    public int getDiagonal() {
         return diagonal;
     }
 
-    public void setDiagonal(String diagonal){
+    public void setDiagonal(int diagonal){
         this.diagonal = diagonal;
     }
    
@@ -119,5 +121,42 @@ public class Notebook {
 
     public void setOperatingSystem(String operatingSystem){
         this.operatingSystem = operatingSystem;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Notebook {" +
+                "Модель ноутбука = '" + brandName + '\'' +
+                ", Год выпуска = '" + releaseYear + '\'' +
+                ", Цвет = '" + color + '\'' +
+                ", Тип матрицы = '" + matrixType + '\'' +
+                ", Размер диагонали = '" + diagonal + '\'' +
+                ", Название процессора = '" + processorName + '\'' +
+                ", Объем оперативной памяти = '" + memorySize + '\'' +
+                ", Объем жесткого диска = '" + storageSize + '\'' +
+                ", Операционная система = '" + operatingSystem + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+        Notebook notebook = (Notebook) obj;
+        return notebook.brandName.equals(brandName) &&
+                notebook.releaseYear == releaseYear &&
+                notebook.color.equals(color) &&
+                notebook.matrixType.equals(matrixType) &&
+                notebook.diagonal == diagonal &&
+                notebook.processorName.equals(processorName) &&
+                notebook.memorySize == memorySize &&
+                notebook.storageSize == storageSize &&
+                notebook.operatingSystem.equals(operatingSystem);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(brandName, releaseYear, color, matrixType, diagonal, processorName, memorySize, storageSize, operatingSystem);
     }
 }
