@@ -29,7 +29,7 @@ public class Notebook {
     //Тип матрицы
     private String matrixType;
     //Диагональ экрана
-    private int diagonal;
+    private double diagonal;
     //Модель процессора
     private String processorName;
     //Объем RAM
@@ -39,7 +39,7 @@ public class Notebook {
     //Операционная система
     private String operatingSystem;
 
-    public Notebook(String brandName, int releaseYear, String color, String matrixType, int diagonal, String processorName, int memorySize, int storageSize, String operatingSystem){
+    public Notebook(String brandName, int releaseYear, String color, String matrixType, double diagonal, String processorName, int memorySize, int storageSize, String operatingSystem){
         this.brandName = brandName;
         this.releaseYear = releaseYear;
         this.color = color;
@@ -83,11 +83,11 @@ public class Notebook {
         this.matrixType = matrixType;
     }
 
-    public int getDiagonal() {
+    public double getDiagonal() {
         return diagonal;
     }
 
-    public void setDiagonal(int diagonal){
+    public void setDiagonal(double diagonal){
         this.diagonal = diagonal;
     }
    
